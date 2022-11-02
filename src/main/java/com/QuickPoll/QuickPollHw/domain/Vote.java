@@ -6,12 +6,13 @@ import javax.persistence.*;
 public class Vote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="VOTE_ID")
+    @Column(name="VOTE_ID",nullable = false)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name="OPTION_ID")
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name="OPTION_ID",nullable = false)
     private Options option;
-
+    public Vote() {
+    }
     public Long getId() {
         return id;
     }
@@ -26,5 +27,13 @@ public class Vote {
 
     public void setOption(Options option) {
         this.option = option;
+    }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", option=" + option +
+                '}';
     }
 }

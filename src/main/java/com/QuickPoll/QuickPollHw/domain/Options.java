@@ -6,11 +6,14 @@ import javax.persistence.*;
 public class Options {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="OPTION_ID")
+    @Column(name="OPTION_ID",nullable = false)
     private Long id;
 
-    @Column(name="OPTION_VALUE")
+    @Column(name="OPTION_VALUE" ,nullable = false)
     private String value;
+
+    public Options() {
+    }
 
     public Long getId() {
         return id;
@@ -26,5 +29,13 @@ public class Options {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Options{" +
+                "id=" + id +
+                ", value='" + value + '\'' +
+                '}';
     }
 }
