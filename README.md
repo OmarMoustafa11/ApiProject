@@ -24,3 +24,7 @@ the info below inside the body.
     "value": "Green Bay Packers"
 }
 }
+
+ http://localhost:8080/computeresult?pollId=1
+ 
+ this is to view what was implemented in the body as a result.
